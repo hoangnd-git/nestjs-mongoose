@@ -16,8 +16,8 @@ const corsOptions = {
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  // app.connectMicroservice(kafkaConfigs);
-  // await app.startAllMicroservices();
+  app.connectMicroservice(kafkaConfigs);
+  await app.startAllMicroservices();
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
